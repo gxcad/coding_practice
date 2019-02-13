@@ -5,10 +5,9 @@
 // --- Examples
 
 // function capitalize(str) {
-//   let result = '';
+//   let result = str[0].toUpperCase();
 
-//   for (let i = 0; i < str.length; i += 1) {
-//     if (i === 0) result += str[i].toUpperCase();
+//   for (let i = 1; i < str.length; i += 1) {
 //     else if (str[i - 1] === ' ') result += str[i].toUpperCase();
 //     else result += str[i];
 //   }
