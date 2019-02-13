@@ -42,21 +42,3 @@ console.log(anagrams('Hi there', 'Bye there')); //--> False
 //     if (counterA[char]) counterA[char] += 1;
 //     else counterA[char] = 0;
 //   }
-
-
-// module.exports = anagrams;
-
-// anagrams('rail safety', 'fairy tales') --> True
-
-
-// counterA['r']
-// counterA = {
-//     r: 1,
-//     a: 1,
-//     k: 1,
-//     e: 1
-// };
-
-// return (counterA === counterB);
-
-// .replace
