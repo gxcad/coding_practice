@@ -7,6 +7,15 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
 
-module.exports = palindrome;
+function palindrome(str) {
+  for (let i = 0; i < Math.ceil(str.length / 2); i += 1) {
+    if (str[i].toLowerCase() !== str[str.length - 1 - i].toLowerCase()) return false;
+  }
+
+  return true;
+}
+
+console.log(palindrome("abba")) // === true
+console.log(palindrome("abcdefg")) // === false
+console.log(palindrome('racecar')); // === true
