@@ -16,7 +16,7 @@ function reverse(str) {
   return reversed;
 }
 
-console.log(reverse('apple')) // === 'leppa'
+console.log(reverse('apple')) // === 'elppa'
 console.log(reverse('hello')) // === 'olleh'
 console.log(reverse('Greetings!')) // === '!sgniteerG'
 module.exports = reverse;
