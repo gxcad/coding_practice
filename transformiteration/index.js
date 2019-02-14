@@ -10,6 +10,7 @@
 // alternatively, use .replace
 // alternately, use split and change, then rejoin
 // then push result to resultArr
+// also attempted using reduce
 
 const transform = (source, target) => {
   let resultArr = [source];
