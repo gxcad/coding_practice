@@ -1,9 +1,5 @@
-// Write
-
-// function transform(source, target){}
-
+// Write the function transform(source, target){}
 // that takes in 2 strings and transforms source into the target string.
-
 // source and target will always be of the same length
 
 
