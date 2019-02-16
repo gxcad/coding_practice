@@ -8,7 +8,7 @@
 //   return total;
 // }
 
-const findSquares = (x,y) => x&&y&&x * y + findSquares(x-1, y-1);
+const findSquares = (num1 , num2) => num1 && num2 && num1 * num2 + findSquares(num1 - 1, num2 - 1);
 
 console.log(findSquares(4, 3)); // 20
 console.log(findSquares(5, 5)); // 55
