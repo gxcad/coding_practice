@@ -1,8 +1,8 @@
 function findSquares(x,y){
   let total = x * y;
   
-  for (let i = 2; i <= x && i <= y; i += 1) {
-    total += (x - (i - 1)) * (y - (i - 1));
+  for (let i = 1; i < x && i < y; i += 1) {
+    total += (x - i) * (y - i);
   }
 
   return total;
