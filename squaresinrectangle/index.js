@@ -1,14 +1,11 @@
 function findSquares(x,y){
-  let total = 0;
+  let total = x * y;
   
-  total += x * y;
-  
-  for (let i = 2; i < Infinity; i += 1) {
-    if (i <= x && i <= y) {
-      let subtractor = i - 1;
-      total += (x - subtractor) * (y - subtractor);
-    } else return total;
+  for (let i = 2; i <= x && i <= y; i += 1) {
+    total += (x - (i - 1)) * (y - (i - 1));
   }
+
+  return total;
 }
 
 console.log(findSquares(4, 3)); // 20
