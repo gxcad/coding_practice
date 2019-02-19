@@ -17,17 +17,30 @@
 //       '### '
 //       '####'
 
-const steps = n => {
-  for (let i = 1; i <= n; i += 1) {
-    let container = '';
-    for (let k = 1; k <= n; k += 1) {
-      if (k <= i) container += '#';
-      else container += ' ';
-    }
-    console.log(container);
+// const steps = n => {
+//   for (let i = 1; i <= n; i += 1) {
+//     let container = '';
+//     for (let k = 1; k <= n; k += 1) {
+//       if (k <= i) container += '#';
+//       else container += ' ';
+//     }
+//     console.log(container);
+//   }
+
+//   return;
+// }
+
+const steps = (n, row = 0, stair = '') => {
+  let column = 0;
+  if (row === n) return;
+  
+  if (n === stair.length) {
+    console.log(stair);
+    return steps(n, row + 1);
   }
 
-  return;
+  stair.length <= row ? stair += '#' : stair += ' ';
+  steps(n, row, stair);
 }
 
 console.log(steps(4));
