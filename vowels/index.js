@@ -8,8 +8,10 @@ function vowels(str) {
   let count = 0;
   
   for (letter of str) {
-    if ()
+    if (vowels.indexOf(letter) !== -1) count += 1;
   }
+
+  return count;
 }
 
 // --- Examples
