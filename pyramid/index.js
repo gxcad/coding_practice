@@ -3,17 +3,29 @@
 // The function should console log a pyramid shape
 // with N levels using the # character.  Make sure the
 // pyramid has spaces on both the left *and* right hand sides
+
+function pyramid(n) {
+  for (let row = 0; row < n; row++) {
+    let string = '';
+    for (let column = 0; column < n; column++) {
+      if (row <= column) {
+        string += '#';
+      }
+    }
+  }
+}
+
 // --- Examples
-//   pyramid(1)
+console.log(pyramid(1));
 //       '#'
-//   pyramid(2)
+
+console.log(pyramid(2));
 //       ' # '
 //       '###'
-//   pyramid(3)
+
+console.log(pyramid(3));
 //       '  #  '
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
-
-module.exports = pyramid;
+// module.exports = pyramid;
