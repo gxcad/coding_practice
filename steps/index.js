@@ -26,6 +26,8 @@ const steps = n => {
     }
     console.log(container);
   }
+
+  return;
 }
 
 console.log(steps(4));
