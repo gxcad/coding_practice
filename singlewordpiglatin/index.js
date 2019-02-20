@@ -17,18 +17,20 @@
 
 function pigLatin(string){
   const vowels = 'aeiou';
-  let result = '';
-
+  if (vowels.includes(string[0])) return (string + 'way').toLowerCase();
+  let firstVowelIndex;
+  
   for (let i = 0; i < string.length; i += 1) {
-    let char = string[i];
-    if (!char.match(/[a-z]/)) return null;
-    if (vowels.includes(char[0])) return string + 'way';
+    let char = string[i].toLowerCase();
+    if (!char.match(/[a-z]/i)) return null;
+    if (vowels.includes(char)) firstVowelIndex = i;
   }
-  return true;
+
+  return (string.slice(firstVowelIndex) + string.slice(0, firstVowelIndex) + 'ay').toLowerCase();
 }
 
-Tests:
+// Tests:
 
-console.log(pigLatin("map")); // "apmay"
+console.log(pigLatin("mAp")); // "apmay"
 console.log(pigLatin("egg")); // "eggway"
 console.log(pigLatin("tes3t5")); // null
