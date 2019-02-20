@@ -16,14 +16,14 @@
 
 
 function pigLatin(string){
-  const vowels = 'aeiou';
+  const vowels = 'aeiouAEIOU';
   if (vowels.includes(string[0])) return (string + 'way').toLowerCase();
-  let firstVowelIndex;
+  let firstVowelIndex = 0;
   
   for (let i = 0; i < string.length; i += 1) {
-    let char = string[i].toLowerCase();
+    let char = string[i];
     if (!char.match(/[a-z]/i)) return null;
-    if (vowels.includes(char)) firstVowelIndex = i;
+    if (vowels.includes(char) && !firstVowelIndex) firstVowelIndex = i;
   }
 
   return (string.slice(firstVowelIndex) + string.slice(0, firstVowelIndex) + 'ay').toLowerCase();
@@ -31,6 +31,8 @@ function pigLatin(string){
 
 // Tests:
 
+console.log(pigLatin('ss')); // "ssay"
+console.log(pigLatin('hello')); // "ellohay"
 console.log(pigLatin("mAp")); // "apmay"
 console.log(pigLatin("egg")); // "eggway"
 console.log(pigLatin("tes3t5")); // null
