@@ -40,18 +40,17 @@ const translate = sentence => {
     let piggedWord = '';
     let splitPuncWordArray = splitPunctuation(word);
     let punclessWord = splitPuncWordArray[0];
-    let index = 0;
-    for (let i = 1; i < punclessWord.length; i += 1) {
+    let index = '';
+    let endWord = 'ay';
+
+    for (let i = 0; i < punclessWord.length; i += 1) {
       let char = punclessWord[i];
-      if (vowels.includes(word[0])) {
-        resultArray.push(word + 'way');
-        break;
-      }
       if (vowels.match(char)) {
-        if (!index) index = i;
-        if (!piggedWord) piggedWord = punclessWord.slice(i) + punclessWord.slice(0, i) + 'ay';
+        if (index === '') index = i;
       }
     }
+    if (vowels.includes(word[0])) endWord = 'way';
+    if (!piggedWord) piggedWord = punclessWord.slice(index) + punclessWord.slice(0, index) + endWord;
     if (word[0] === word[0].toUpperCase()) piggedWord = capitalizeFirst(piggedWord);
     resultArray.push(piggedWord + splitPuncWordArray[1]);
   }
@@ -59,5 +58,5 @@ const translate = sentence => {
   return resultArray.join(' ');
 }
 
-console.log(translate('herro, my name is Ken!!')); // errohay, myay amenay isway Enkay!!
+console.log(translate('erro, my name is Ken!!')); // erroway, myay amenay isway Enkay!!
 console.log(translate('Pizza? Yes Please!!')); // Izzapay? Esyay Easeplay!!
