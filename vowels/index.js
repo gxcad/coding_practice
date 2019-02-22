@@ -3,7 +3,7 @@
 // used in a string.  Vowels are the characters 'a', 'e'
 // 'i', 'o', and 'u'.
 
-const vowels = str => str.match(/[aeiou]/ig) ? str.match(/[aeiou]/ig).length : 0;
+const vowels = str => (str.match(/[aeiou]/ig) || []).length;
 
 // function vowels(str) {
 //   let vowels = 'aeiou';
