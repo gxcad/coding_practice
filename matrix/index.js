@@ -15,6 +15,27 @@
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
 
-function matrix(n) {}
+function matrix(n) {
+  const results = [];
+  let count = 1;
+  let sColumn = 0;
+  let sRow = 0;
+  let eColumn = n - 1;
+  let eRow = n - 1;
 
-module.exports = matrix;
+  for (let i = 0; i < n; i += 1) {
+    results.push([]);
+  }
+
+  while (sColumn <= eColumn && sRow <= eRow) {
+    for (let k = sColumn; k < eColumn; k += 1) {
+      results[sRow][k] = count;
+      count += 1;
+    }
+  }
+}
+
+//number of arrays = n
+//length of each array = n
+//total numbers is n squared
+// module.exports = matrix;

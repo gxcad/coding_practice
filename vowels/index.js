@@ -6,6 +6,10 @@
 const vowels = str => (str.match(/[aeiou]/ig) || []).length;
 
 // function vowels(str) {
+//   return (str.match(/[aeiou]/gi) || []).length;
+// }
+
+// function vowels(str) {
 //   let vowels = 'aeiou';
 //   let count = 0;
   
