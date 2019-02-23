@@ -18,6 +18,7 @@
 
 function matrix(n) {
   const results = [];
+  if (typeof n !== 'number' || !Number.isInteger(n)) return results;
   let count = 1;
   let sColumn = 0;
   let sRow = 0;
@@ -54,7 +55,7 @@ function matrix(n) {
   return results;
 }
 
-console.log(matrix(6));
+console.log(matrix(-1));
 
 //number of arrays = n
 //length of each array = n
