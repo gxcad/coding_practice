@@ -6,19 +6,20 @@
 
 function allSquaredPairs(num) {
   let result = [];
+  let root = Math.sqrt(num);
+  let innerRoot = root;
 
   for (let i = 0; i <= Math.sqrt(num); i += 1) {
-    let root = Math.sqrt(num);
-    for (let k = i; k <= root; k += 1) {
+    for (let k = i; k <= innerRoot; k += 1) {
+      console.log(i, k, 'this pair tested');
       let sum = Math.pow(i, 2) + Math.pow(k, 2)
       if (sum > num) {
-        console.log('extra');
-        root -= 1;
+        innerRoot -= 1;
         break;
       }
       else if (sum === num) {
         result.push([i, k]);
-        root -= 1;
+        innerRoot -= 1;
         break;
       }
     }
@@ -27,7 +28,7 @@ function allSquaredPairs(num) {
   return result;
 }
 
-console.log(allSquaredPairs(325));
+console.log(allSquaredPairs(25));
 
 // const weirdWords = string => {
 //   let result = [];
