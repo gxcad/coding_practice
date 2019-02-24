@@ -13,16 +13,21 @@
 
 function polybius (text) {
   let result = '';
-  let alpha = 'abcdefghijklmnopqrstuvwxyz';
+  let alpha = 'ABCDEFGHIKLMNOPQRSTUVWXYZ';
 
   for (char of text) {
-    result += (alpha.indexOf(char) + 1) % 5
+    if (alpha.includes(char) || char === 'J') {
+      let index = alpha.indexOf(char);
+      if (char === 'J') index = alpha.indexOf('I');
+      result += Math.floor(index / 5) + 1;
+      result += index % 5 + 1;
+    } else result += char;
   }
 
   return result;
 }
 
-polybius('A')  // "11"
-polybius('IJ') // "2424"
-polybius('CODEWARS') // "1334141552114243"
-polybius('POLYBIUS SQUARE CIPHER') // "3534315412244543 434145114215 132435231542"
+console.log(polybius('A'))  // "11"
+console.log(polybius('IJ')) // "2424"
+console.log(polybius('CODEWARS')) // "1334141552114243"
+console.log(polybius('POLYBIUS SQUARE CIPHER')) // "3534315412244543 434145114215 132435231542"
