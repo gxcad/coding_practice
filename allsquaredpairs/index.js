@@ -1,4 +1,3 @@
-
 // max(num) === 2147483647
 
 // Return every unique pair of numbers [a,b] where (a * a) + (b * b) = num;
@@ -9,17 +8,18 @@ function allSquaredPairs(num) {
   let root = Math.sqrt(num);
   let innerRoot = root;
 
-  for (let i = 0; i <= Math.sqrt(num); i += 1) {
-    for (let k = i; k <= innerRoot; k += 1) {
-      console.log(i, k, 'this pair tested');
+  for (let i = 0; i <= root; i += 1) {
+    for (let k = Math.floor(innerRoot); k >= i; k -= 1) {
+      if (k < root && i === 0) break;
       let sum = Math.pow(i, 2) + Math.pow(k, 2)
       if (sum > num) {
         innerRoot -= 1;
         break;
-      }
-      else if (sum === num) {
+      } else if (sum === num) {
         result.push([i, k]);
         innerRoot -= 1;
+        break;
+      } else if (sum < num) {
         break;
       }
     }
@@ -28,17 +28,7 @@ function allSquaredPairs(num) {
   return result;
 }
 
-console.log(allSquaredPairs(25));
-
-// const weirdWords = string => {
-//   let result = [];
-//   let words = string.split(' ');
-
-//   for (word of words) {
-//     result.push(word.slice(0, word.length - 1).toLowerCase() + word.slice(word.length - 1).toUpperCase() + '.');
-//   }
-
-//   return result.join(' ');
-// }
-
-// console.log(weirdWords('This is a test sentence so far the function will not handle punctuation doubling'));
+const tests = [0,1,2,3,10,16,20,25,325,71825,1048039120,243061325,2027929049,29641625, 2147483643, 2147483645, 2147483647];
+tests.forEach(num => {
+  console.log(allSquaredPairs(num));
+});
