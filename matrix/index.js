@@ -10,7 +10,7 @@
 //     [8, 9, 4],
 //     [7, 6, 5]]
 //  matrix(4)
-//     [[1,   2,  3, 4],
+//     [[1,  2,  3, 4],
 //     [12, 13, 14, 5],
 //     [11, 16, 15, 6],
 //     [10,  9,  8, 7]]
@@ -28,7 +28,6 @@ function matrix(n) {
   for (let i = 0; i < n; i += 1) {
     results.push([]);
   }
-
   while (sColumn <= eColumn && sRow <= eRow) {
     for (let i = sColumn; i <= eColumn; i += 1) {
       results[sRow][i] = count;
@@ -55,7 +54,7 @@ function matrix(n) {
   return results;
 }
 
-console.log(matrix(-1));
+console.log(matrix(4));
 
 //number of arrays = n
 //length of each array = n
