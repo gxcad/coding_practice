@@ -48,9 +48,7 @@ function nbaCup(resultSheet, toFind) {
   let teams = {};
   
   for (game of filterGames) {
-    let team1 = {};
-    let team2 = {};
-    let teamName = [];
+    let team1 = {}, team2 = {}, teamName = [];
     let words = game.trim().split(' ');
     for (word of words) {
       if (word.match(/[a-z]/i)) teamName.push(word);
