@@ -1,15 +1,7 @@
-nst parser = resultSheet => {
-//   let teams = {};
-//   let splitted = resultSheet.split(' ');
+e.log(nbaCup(r, "Los Angeles Clippers")) // -> "Los Angeles Clippers:W=1;D=0;L=1;Scored=204;Conceded=208;Points=3"
 
-//   for (word of splitted) {
-//     let team = [];
-//     let score = '';
-//     if (word.match(/\w/)) team.push(word);
-//     else if (word.match(/\d/)) {
-//       score.push(word);
-//       teamsAndScores[team.join(' ')]
-//     }
-//   }
-//   teamsAndScores[]
-// }
+// console.log(nbaCup(r, "Boston Celtics")) // -> "Boston Celtics:W=1;D=0;L=0;Scored=120;Conceded=100;Points=3"
+
+// console.log(nbaCup(r, "")) // -> ""
+
+// console.log(nbaC
