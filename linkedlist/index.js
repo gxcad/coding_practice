@@ -12,6 +12,9 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
+    this.insertFirst = function(data) {
+      let node = new Node(data, next);
+    };
   }
 }
 
