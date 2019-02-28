@@ -18,16 +18,12 @@
 
 // Note: n and p will always be given as strictly positive integers.
 
-function digPow(n, p){
+const digPow = (n, p) => {
   let nums = n.toString().split('');
-  let total = 0;
+  
+  let total = nums.reduce((sum, value, index) => sum + Math.pow(value, p + index), 0);
 
-  for (let i = 0; i < nums.length; i += 1) {
-    total += Math.pow(nums[i], p+i);
-  }
-
-  if (total % n === 0) return total / n;
-  else return -1
+  return total % n ? -1 : total / n;
 }
 
 console.log(digPow(89, 1)); // should return 1 since 8¹ + 9² = 89 = 89 * 1
