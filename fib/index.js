@@ -10,11 +10,10 @@
 // used my interpretation which is 0 is 1st, 1 is 2nd, 1 is 3rd, 2 is 4th, 3 is 5th, 5 is 6th, 8 is 7th, and so on.
 
 function fib(n) {
-  if (n === 1) return 0
-  let previous = 0;
-  let current = 1;
+  if (n < 2) return n - 1;
+  let previous = 0, current = 1;
   
-  for (let i = 2; i < n; i += 1) {
+  for (let i = 2; i <= n; i += 1) {
     let temp = current;
     current += previous;
     previous = temp;
@@ -23,7 +22,8 @@ function fib(n) {
   return current;
 }
 
+
 // Example:
-console.log(fib(4)); // === 2
-console.log(fib(7)); // === 8
-console.log(fib(10)); // === 34
+console.log(fib(4)); // === 3
+console.log(fib(7)); // === 13
+console.log(fib(10)); // === 55
