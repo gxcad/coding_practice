@@ -41,6 +41,14 @@
 // Numbers of tests: 111
 // Sum of digits value between 20 and 65
 // Amount of digits between 2 and 15
+function sortStringTest(string) {
+  for (let i = 0; i < string.length; i += 1) {
+    if (string[i] > string[i + 1]) return false;
+  }
+
+  return true;
+}
+
 function sum(numString) {
   let total = 0;
 
@@ -52,28 +60,30 @@ function sum(numString) {
 }
 
 function findAll(num1, num2) {
+  let current = '1';
   let numArray = [];
-  let min = '1';
-  let current;
 
   for (let i = 1; i < num2; i += 1) {
-    min += '0';
+    current += '0';
+  }
+    
+  while (current.length < num2 + 1) {
+    if (sum(current) === num1 && sortStringTest(current)) {
+      numArray.push(current);
+    }
+    current = parseInt(current);
+    current += 1;
+    current = current.toString();
+    console.log(current, 'this number considered');
   }
 
-  min = parseInt(min);
-  current = min + 1;
-
-  while (current.length < num2.length + 1) {
-    if (sum(current) === )
-  }
-
-  if (sum(min) === num1) numArray.push(min);
-
-  return numArray;
+  if (numArray.length === 0) return [];
+  else return [numArray.length, numArray[0], numArray[numArray.length - 1]];
 }
 
+// console.log(sortStringTest('179'));
 // console.log(sum('118'));
-console.log(findAll(1, 3));
+console.log(findAll(10, 3));
 
 // first number is sum of single digits of number
 // e.g. 118 = 10
