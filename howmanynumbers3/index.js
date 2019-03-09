@@ -41,6 +41,26 @@
 // Numbers of tests: 111
 // Sum of digits value between 20 and 65
 // Amount of digits between 2 and 15
+console.log(increaseDigits('100', 10));
+function increaseDigits(digitString, targetSum) {
+  let numbers = '0123456789';
+  let digitArray = digitString.split('');
+  let currentSum = sum(digitString);
+  let difference = targetSum - currentSum;
+  let last = digitArray.length - 1;
+  if (!difference) {
+    if (digitArray[last] >= digitArray[last - 1] && digitArray[last - 1] < 9) {
+      digitArray[last] -= 1;
+      parseInt(digitArray[last - 1]) += 1;
+    }
+  }
+  if (difference < 10 - digitArray[last]) {
+    digitArray[last] = numbers[numbers.indexOf(digitArray[last]) + difference];
+  }
+  
+  return digitArray.join(''); //returns a string
+}
+
 function sortStringTest(string) {
   for (let i = 0; i < string.length; i += 1) {
     if (string[i] > string[i + 1]) return false;
@@ -61,29 +81,33 @@ function sum(numString) {
 
 function findAll(num1, num2) {
   let current = '1';
-  let numArray = [];
+  let finalArray = [0];
 
   for (let i = 1; i < num2; i += 1) {
     current += '0';
   }
-    
+    //here, current === 'string'
   while (current.length < num2 + 1) {
-    if (sum(current) === num1 && sortStringTest(current)) {
-      numArray.push(current);
+    let sumOfCurrent = sum(current);
+    if (sumOfCurrent === num1 && sortStringTest(current)) {
+      finalArray[0] += 1;
+      if (!finalArray[1]) finalArray[1] = current;
+      else finalArray[2] = current;
+    } else {
+      
     }
-    current = parseInt(current);
-    current += 1;
+    //needs efficient iteration
     current = current.toString();
     console.log(current, 'this number considered');
   }
 
-  if (numArray.length === 0) return [];
-  else return [numArray.length, numArray[0], numArray[numArray.length - 1]];
+  if (!finalArray[0]) return [];
+  return finalArray;
 }
 
 // console.log(sortStringTest('179'));
 // console.log(sum('118'));
-console.log(findAll(10, 3));
+// console.log(findAll(10, 3));
 
 // first number is sum of single digits of number
 // e.g. 118 = 10
