@@ -19,12 +19,42 @@ class LinkedList {
     };
     this.size = function() {
       let count = 0;
-      while (this.head) {
+      let node = this.head;
+      while (node) {
         count += 1;
-        this.head = this.head.next;
+        node = node.next;
       }
 
       return count;
+    }
+    this.getFirst = () => this.head;
+    this.getLast = () => {
+      let node = this.head;
+      let next = this.head.next;
+      while (next) {
+        node = next;
+        next = node.next;
+      }
+
+    return node;
+    }
+    this.clear = () => this.head = null;
+    this.removeFirst = () => this.head = this.head.next;
+    this.removeLast = () => {
+      let node = this.head;
+      let next = this.head.next;
+      let previous = null;
+      while (next) {
+        previous = node;
+        node = next;
+        next = node.next;
+      }
+      if (previous) previous.next = null;
+      // while (this.head.next) {
+      //   this.head = this.head.next;
+      //   this.head.next = this.head;
+      // }
+      // this.head = this.head.next;
     }
   }
 }
@@ -48,4 +78,3 @@ module.exports = { Node, LinkedList };
 //   next: null
 // }
 // --------
-// list.size() return the number of nodes currently in the list.
