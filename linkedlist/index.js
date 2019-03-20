@@ -55,17 +55,17 @@ class LinkedList {
       else this.head = null;
     };
     this.insertLast = data => {
-      const last = this.getLast();
-      if (last) last.next = new Node(data);
-      else this.head = new Node(data);
-      // if (!this.head) return;
-      // let node = this.head;
-      // let next = this.head.next;
-      // while (next) {
-      //   node = next;
-      //   next = node.next;
-      // }
-      // node.next = new Node(data);
+      // const last = this.getLast();
+      // if (last) last.next = new Node(data);
+      // else this.head = new Node(data);
+      if (!this.head) this.head = new Node(data);
+      let node = this.head;
+      let next = this.head.next;
+      while (next) {
+        node = next;
+        next = node.next;
+      }
+      node.next = new Node(data);
     };
     this.getAt = index => {
       let counter = 0;
