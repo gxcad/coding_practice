@@ -55,30 +55,35 @@ class LinkedList {
       else this.head = null;
     };
     this.insertLast = data => {
-      // const last = this.getLast();
-      // if (last) last.next = new Node(data);
-      // else this.head = new Node(data);
-      if (!this.head) this.head = new Node(data);
-      let node = this.head;
-      let next = this.head.next;
-      while (next) {
-        node = next;
-        next = node.next;
-      }
-      node.next = new Node(data);
+      const last = this.getLast();
+      if (last) last.next = new Node(data);
+      else this.head = new Node(data);
+      // if (!this.head) this.head = new Node(data);
+      // let node = this.head;
+      // let next = this.head.next;
+      // while (next) {
+      //   node = next;
+      //   next = node.next;
+      // }
+      // node.next = new Node(data);
     };
     this.getAt = index => {
-      let counter = 0;
-      let node = this.head;
-      while (node) {
-        if (counter === index) {
-          return node;
-        }
-
-        counter++;
-        node = node.next;
+      if (!this.head) return null;
+      let current = this.head;
+      let next = current.next;
+      for (let i = 0; i < index; i++) {
+        current = next;
+        if (next) next = current.next;
       }
-      return null;
+      return current;
+    };
+    this.removeAt = index => {
+      if (!this.getAt(index)) return;
+      if (!index && !this.head.next) this.head = null;
+      if (!index) this.head = this.head.next;
+      let previous = this.getAt(index - 1);
+      let current = this.getAt(index);
+      previous.next = current.next;
     };
   }
 }
