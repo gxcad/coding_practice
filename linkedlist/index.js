@@ -85,6 +85,18 @@ class LinkedList {
       let current = this.getAt(index);
       previous.next = current.next;
     };
+    this.insertAt = (data, index) => {
+      if (!this.head) {
+        this.head = new Node(data);
+      }
+      if (!data) return;
+      if (!this.getAt(index - 1)) return;
+      let current = this.getAt(index);
+      let previous = this.getAt(index - 1);
+      current = this.getAt(index);
+      current.next = current;
+      previous.next = new Node(data);
+    };
   }
 }
 
