@@ -58,14 +58,6 @@ class LinkedList {
       const last = this.getLast();
       if (last) last.next = new Node(data);
       else this.head = new Node(data);
-      // if (!this.head) this.head = new Node(data);
-      // let node = this.head;
-      // let next = this.head.next;
-      // while (next) {
-      //   node = next;
-      //   next = node.next;
-      // }
-      // node.next = new Node(data);
     };
     this.getAt = index => {
       if (!this.head) return null;
@@ -86,36 +78,28 @@ class LinkedList {
       previous.next = current.next;
     };
     this.insertAt = (data, index) => {
-      if (!this.head) {
-        this.head = new Node(data);
+      if (!this.head) this.head = new Node(data);
+      else if (index === 0) this.insertFirst(data);
+      else if (index > this.size()) this.insertLast(data);
+      else {
+        let previous = this.getAt(index - 1);
+        let current = previous.next;
+        let nNode = new Node(data);
+        previous.next = nNode;
+        nNode.next = current;
       }
-      if (!data) return;
-      if (!this.getAt(index - 1)) return;
-      let current = this.getAt(index);
-      let previous = this.getAt(index - 1);
-      current = this.getAt(index);
-      current.next = current;
-      previous.next = new Node(data);
     };
   }
 }
 
 module.exports = { Node, LinkedList };
 
-// let list1 = new LinkedList();
-// ----------
-// node1 {
-//   data: '35',
-//   next: 'node2'  (head)
-// }
+// linked list:
+// {data: 'blahHead', next: node1} < this.head (index 0)
+// {data: 'blah1', next: newNode} (index 1)
+// {data: 'newNode', next: node2} (index 2)
+// {data: 'blah2', next: node3} (index 3)
+// {data: 'blah3', next: node4} (index 4)
+// {data: 'blah4', next: node5} (index 5)
 
-// node2 {
-//   data: '35',
-//   next: 'node3'
-// }
-
-// node3 {
-//   data: '35',
-//   next: null
-// }
-// --------
+// {data: 'b' next: node1}
