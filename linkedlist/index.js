@@ -12,12 +12,14 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
-    this.insertFirst = function(data) {
+
+    this.insertFirst = data => {
       let node1 = new Node(data);
       if (this.head) node1.next = this.head;
       this.head = node1;
     };
-    this.size = function() {
+
+    this.size = () => {
       let count = 0;
       let node = this.head;
       while (node) {
@@ -27,7 +29,9 @@ class LinkedList {
 
       return count;
     };
+
     this.getFirst = () => this.head;
+
     this.getLast = () => {
       if (!this.head) return;
       let node = this.head;
@@ -39,8 +43,11 @@ class LinkedList {
 
       return node;
     };
+
     this.clear = () => (this.head = null);
+
     this.removeFirst = () => (this.head = this.head.next);
+
     this.removeLast = () => {
       if (!this.head) return;
       let node = this.head;
@@ -54,11 +61,13 @@ class LinkedList {
       if (previous) previous.next = null;
       else this.head = null;
     };
+
     this.insertLast = data => {
       const last = this.getLast();
       if (last) last.next = new Node(data);
       else this.head = new Node(data);
     };
+
     this.getAt = index => {
       if (!this.head) return null;
       let current = this.head;
@@ -69,6 +78,7 @@ class LinkedList {
       }
       return current;
     };
+
     this.removeAt = index => {
       if (!this.getAt(index)) return;
       if (!index && !this.head.next) this.head = null;
@@ -77,16 +87,24 @@ class LinkedList {
       let current = this.getAt(index);
       previous.next = current.next;
     };
+
     this.insertAt = (data, index) => {
-      if (!this.head) this.head = new Node(data);
-      else if (index === 0) this.insertFirst(data);
+      let nNode = new Node(data);
+      if (!this.head) this.head = nNode;
+      else if (!index) this.insertFirst(data);
       else if (index > this.size()) this.insertLast(data);
       else {
         let previous = this.getAt(index - 1);
-        let current = previous.next;
-        let nNode = new Node(data);
+        nNode.next = previous.next;
         previous.next = nNode;
-        nNode.next = current;
+      }
+    };
+    this.forEach = func => {
+      // if (!this.head) return;
+      let node = this.head;
+      while (node) {
+        func(node);
+        node = node.next;
       }
     };
   }
@@ -103,3 +121,11 @@ module.exports = { Node, LinkedList };
 // {data: 'blah4', next: node5} (index 5)
 
 // {data: 'b' next: node1}
+
+// let array = [1, 2, 3];
+
+// array.forEach(element => {
+//   element += 1;
+// })
+
+// []
