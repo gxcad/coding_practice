@@ -100,7 +100,6 @@ class LinkedList {
       }
     };
     this.forEach = func => {
-      // if (!this.head) return;
       let node = this.head;
       while (node) {
         func(node);
