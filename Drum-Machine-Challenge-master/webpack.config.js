@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'index_bundle.js'
   },
   module: {
     rules: [
@@ -18,7 +18,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.WAV$/,
@@ -28,9 +28,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title:'Drum Machine',
+      title: 'Drum Machine',
       template: './src/index.html',
-      filename:'./index.html'
-  })
-]
+      filename: './index.html'
+    })
+  ]
 };
