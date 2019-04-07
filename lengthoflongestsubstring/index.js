@@ -2,26 +2,32 @@
 // @param {string} s
 // @return {number}
 
-var lengthOfLongestSubstring = function (s) {
+var lengthOfLongestSubstring = s => {
+  let string = s;
   let current = '';
   let longest = '';
 
-  for (let char of s) {
-    if (!current.includes(char)) {
+  for (let i = 0; i < s.length; i += 1) {
+    let char = s[i];
+    let charIdx = current.indexOf(char)
+    if (charIdx === -1) {
       current += char;
-    }
-    else {
       if (current.length > longest.length) longest = current;
-      current = char;
+    } else {
+      string = string.slice(charIdx + 1);
+      current = string.slice(0, string.indexOf(char)) + char;
     }
-    // console.log(current, 'current');
-    // console.log(longest, 'longest');
   }
   if (!longest.length) return current;
-  return longest;
+  else return longest;
 };
 
-console.log(lengthOfLongestSubstring('poopoopoo'));
-console.log(lengthOfLongestSubstring('abcabcbb'));
-console.log(lengthOfLongestSubstring('bbbbb'));
-console.log(lengthOfLongestSubstring('pwwkew'));
+console.log(lengthOfLongestSubstring('anvitvjkovdlmvkn')); // 'jkovdlm'
+console.log(lengthOfLongestSubstring('anzvitvjkod')); // 'itvjkod'
+console.log(lengthOfLongestSubstring('poopoopoo')); // 'po'
+console.log(lengthOfLongestSubstring('abcabcbb')); // 'abc'
+console.log(lengthOfLongestSubstring('bbbbb')); // 'b'
+console.log(lengthOfLongestSubstring('pwwkew')); // 'wke'
+console.log(lengthOfLongestSubstring('aab')); // 'ab'
+console.log(lengthOfLongestSubstring('dvdf')); // 'vdf'
+console.log(lengthOfLongestSubstring('anviaj')); // 'nviaj'
