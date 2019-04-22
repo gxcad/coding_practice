@@ -12,6 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^24.1.0"
+    "jest": "^24.7.1"
+  },
+  "dependencies": {
+    "g": "^2.0.1",
+    "nodeschool": "0.0.0"
   }
 }

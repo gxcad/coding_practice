@@ -1,2 +1,1 @@
-log(current, 'current');
-    console.lo
+  let string = s;

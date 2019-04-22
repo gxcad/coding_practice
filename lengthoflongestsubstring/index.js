@@ -2,7 +2,7 @@
 // @param {string} s
 // @return {number}
 
-var lengthOfLongestSubstring = s => {
+const lengthOfLongestSubstring = s => {
   let string = s;
   let current = '';
   let longest = '';
@@ -18,8 +18,7 @@ var lengthOfLongestSubstring = s => {
       current = string.slice(0, string.indexOf(char)) + char;
     }
   }
-  if (!longest.length) return current;
-  else return longest;
+  return longest;
 };
 
 console.log(lengthOfLongestSubstring('anvitvjkovdlmvkn')); // 'jkovdlm'
